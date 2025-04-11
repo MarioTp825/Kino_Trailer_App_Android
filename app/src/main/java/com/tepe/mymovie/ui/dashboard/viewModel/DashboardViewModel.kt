@@ -9,6 +9,7 @@ import com.tepe.domain.model.movie.MovieGenre
 import com.tepe.domain.model.network.NetworkState
 import com.tepe.domain.repository.DashboardRepository
 import com.tepe.domain.util.network.apiCall
+import com.tepe.flutter_integration.contracts.FlutterBridge
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -21,8 +22,10 @@ import javax.inject.Inject
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
     private val repository: DashboardRepository,
-    val dashboardPageManager: DashboardPageManager
+    val dashboardPageManager: DashboardPageManager,
+    val bridge: FlutterBridge
 ) : ViewModel() {
+
     private val _dashboardState: MutableStateFlow<NetworkState> =
         MutableStateFlow(NetworkState.None)
     val dashboardState: StateFlow<NetworkState> get() = _dashboardState

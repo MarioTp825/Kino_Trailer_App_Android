@@ -5,6 +5,8 @@ import com.tepe.data.dashboard.KinoCheckTrailerService
 import com.tepe.data.network.ServiceBuilder
 import com.tepe.domain.dashboard.DashboardPageManager
 import com.tepe.domain.repository.DashboardRepository
+import com.tepe.flutter_integration.contracts.FlutterBridge
+import com.tepe.flutter_integration.impl.FlutterBridgeImpl
 import com.tepe.mymovie.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -35,5 +37,11 @@ object AppModule {
     @Singleton
     fun providesDashboardPageManager(): DashboardPageManager {
         return DashboardPageManager()
+    }
+
+    @Provides
+    @Singleton
+    fun providesFlutterBridge(): FlutterBridge {
+        return FlutterBridgeImpl()
     }
 }

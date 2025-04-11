@@ -1,5 +1,7 @@
 package com.tepe.domain.model.movie
 
+import java.io.Serializable
+
 data class MovieUI(
     val id: String,
     val title: String,
@@ -7,4 +9,4 @@ data class MovieUI(
     val videoUrl: String,
     val category: MovieGenre,
     val views: Long = 0L,
-)
+): Serializable

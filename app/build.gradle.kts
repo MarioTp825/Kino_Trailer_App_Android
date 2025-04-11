@@ -87,6 +87,7 @@ dependencies {
     //inner images
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":flutter_integration"))
 }
 
 kapt {
