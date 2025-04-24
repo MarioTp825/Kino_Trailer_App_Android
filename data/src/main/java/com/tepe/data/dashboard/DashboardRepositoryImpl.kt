@@ -26,6 +26,8 @@ class DashboardRepositoryImpl(
                         title = trailer.title.orEmpty(),
                         imageUrl = trailer.thumbnail.orEmpty(),
                         videoUrl = YoutubeUrl + trailer.youtubeVideoId,
+                        youtubeId = trailer.youtubeVideoId,
+                        websiteUrl = trailer.url,
                         category = category,
                         views = trailer.views ?: 0L
                     )

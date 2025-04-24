@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Movie</string>
+    <string name="app_name">Movie Trailer</string>
+    <string name="desc_movie_app">This app was created for educational purposes only. We use KinoCheck API to obtain the data and implemented the project using Android\'s Jetpack Compose and Flutter. For any doubts you may reach me at my social networks listed in the \"Created by\" link</string>
+    <string name="created_by">Created by</string>
+    <string name="developer_name">Mario Tepe</string>
+    <string name="resources">Resources</string>
+    <string name="api_provider">KinoCheck</string>
 </resources>

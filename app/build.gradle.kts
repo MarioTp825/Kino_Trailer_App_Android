@@ -2,8 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp.dev)
+    alias(libs.plugins.kotlin.serialization)
 
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
@@ -24,11 +25,25 @@ android {
         }
 
         buildConfigField("String", "BASE_URL", "\"https://api.kinocheck.com/\"")
+
+        ndk {
+            // Filter for architectures supported by Flutter
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")
+        }
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -73,8 +88,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //Kotlin libraries
+    implementation(libs.kotlinx.serialization.json)
 
     //Image Libraries
     implementation(libs.coil.compose)
@@ -82,14 +101,16 @@ dependencies {
 
     //Dagger Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
-    //inner images
+    //Youtube
+    implementation(libs.youtube.player)
+
+    //inner layers
     implementation(project(":domain"))
     implementation(project(":data"))
-    implementation(project(":flutter_integration"))
-}
+    implementation(project(":cross_platform_integration"))
+    implementation(project(":flutter_implementation"))
 
-kapt {
-    correctErrorTypes = true
 }

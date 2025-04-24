@@ -29,4 +29,5 @@ include(":domain")
 
 val filePath = settingsDir.parentFile.toString() + "/my_movie_detail/.android/include_flutter.groovy"
 apply(from = File(filePath))
-include(":flutter_integration")
+include(":cross_platform_integration")
+include(":flutter_implementation")

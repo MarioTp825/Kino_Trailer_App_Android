@@ -30,4 +30,10 @@ enum class MovieGenre(val urlValue: String) {
     RealityTV("Reality-TV"),
     Superhero("Superhero"),
     Main("Main Movies");
+
+    companion object {
+        fun fromUrlValue(urlValue: String): MovieGenre {
+            return entries.firstOrNull { it.urlValue == urlValue } ?: Main
+        }
+    }
 }

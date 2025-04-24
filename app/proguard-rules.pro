@@ -12,6 +12,10 @@
 #   public *;
 #}
 
+-keep class com.tepe.data.dashboard.responses.** { *; }
+-keep class com.tepe.data.dashboard.KinoTrailerResponseDeserializer { *; }
+-keep class com.tepe.data.database.entities.MovieEntity { *; }
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable

@@ -20,11 +20,14 @@
         <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.16/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/cross_platform_integration" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/flutter_integration" />
+            <option value="$PROJECT_DIR$/flutter_implementation" />
             <option value="$PROJECT_DIR$/../my_movie_detail/.android/Flutter" />
             <option value="$USER_HOME$/dev/flutter/packages/flutter_tools/gradle" />
           </set>

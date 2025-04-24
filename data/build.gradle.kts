@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.ksp.dev)
 }
 
 android {
@@ -42,15 +42,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //Network
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
-    kapt(libs.moshi.kotlin.codegen)
+    ksp(libs.moshi.kotlin.codegen)
 
+    //
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+
+    //Internal Layers
     implementation(project(":domain"))
-}
-
-kapt {
-    correctErrorTypes = true
 }

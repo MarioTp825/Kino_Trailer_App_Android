@@ -8,7 +8,9 @@ sealed class NetworkState private constructor(
     data object Loading : NetworkState()
     data object Successful : NetworkState()
     data object Paginating : NetworkState()
-    class Error(override val message: String) : NetworkState()
+    class Error(msg: String? = null) : NetworkState() {
+        override val message: String = msg ?: "Unknown Error"
+    }
 
     fun isLoading(): Boolean {
         return this is Loading
