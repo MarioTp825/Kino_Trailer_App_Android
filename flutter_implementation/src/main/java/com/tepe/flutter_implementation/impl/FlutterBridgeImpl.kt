@@ -9,8 +9,7 @@ import com.tepe.cross_platform_integration.contracts.CrossPlatformBridge
 import com.tepe.cross_platform_integration.model.ScreenRouter
 import com.tepe.flutter_implementation.ui.ReusableFlutterFragment
 import dagger.hilt.android.qualifiers.ApplicationContext
-import io.flutter.embedding.android.FlutterActivity.withCachedEngine
-import io.flutter.embedding.android.FlutterActivity.withNewEngine
+import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragment
 import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
@@ -74,9 +73,9 @@ class FlutterBridgeImpl @Inject constructor(
         channel.invokeMethod("selfPopBack", null)
         val initRoute = setUpParamsAndGetInitialRoute(parameter)
         return if (withNewEngine) {
-            withNewEngine().initialRoute(initRoute).build(context)
+            FlutterActivity.withNewEngine().initialRoute(initRoute).build(context)
         } else {
-            withCachedEngine(ENGINE_CACHE_ID).build(context)
+            FlutterActivity.withCachedEngine(ENGINE_CACHE_ID).build(context)
         }
     }
 
